@@ -32,6 +32,43 @@
 
 <th:block layout:fragment="script">
     <script>
-
+		$(document).ready(function(e) {
+			// 로그인 하기
+			$("form").on('submit', function(e) {
+				e.preventDefault();
+				// alert("응");
+				
+				// validation
+				let loginId = $("input[name=loginId]").val().trim();
+				let password = $("input[name=password]").val();
+				
+				if (!loginId) {
+					alert("아이디를 입력하세요");
+					return false;
+				}
+				if (!password) {
+					alert("비밀번호를 입력하세요");
+					return false;
+				}
+				
+				// AJAX(로그인해서 값 불러오기)
+				let url = $(this).attr('action');
+				console.log(url);
+				let params = $(this).serialize();
+				console.log(params);
+				
+				$.post(url,params) // request
+				.done(function(data) { // response
+					if (data.result == "성공") {
+						// 글 목록 화면으로 이동
+						location.href="/timeline/timeline-view";
+					} else {
+						alert(data.error_message);
+					}
+				});
+				
+			}); // 로그인 폼 버튼 끝
+			
+		});
     </script>
 </th:block>
