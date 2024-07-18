@@ -12,21 +12,16 @@ import com.sns.post.entity.PostEntity;
 
 @Controller
 public class TimelineController {
-	
+
 	@Autowired
 	private PostBO postBO;
 	
 	@GetMapping("/timeline/timeline-view")
 	public String timelineView(Model model) {
-		// DB 조회
 		List<PostEntity> postList = postBO.getPostEntityList();
 		
-		//모델에 담기
 		model.addAttribute("postList", postList);
-		
 		
 		return "timeline/timeline";
 	}
-	
-	
 }
