@@ -7,6 +7,7 @@ import lombok.ToString;
 
 @ToString
 @Data
+// 댓글 1개
 public class Comment {
 	private int id;
 	private int postId;
