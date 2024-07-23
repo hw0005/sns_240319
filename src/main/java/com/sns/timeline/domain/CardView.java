@@ -3,6 +3,7 @@ package com.sns.timeline.domain;
 import java.util.List;
 
 import com.sns.comment.domain.CommentView;
+import com.sns.like.domain.Like;
 import com.sns.post.entity.PostEntity;
 import com.sns.user.entity.UserEntity;
 
@@ -24,7 +25,9 @@ public class CardView {
 	private List<CommentView> commentList;
 	
 	// 좋아요 N개
-	
+	private int likeCount;
 	
 	// 좋아요를 누른지 여부
+	private boolean filledLike; // 채워졌으면 true 아니라면 false
+	
 }

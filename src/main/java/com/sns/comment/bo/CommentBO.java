@@ -27,6 +27,7 @@ public class CommentBO {
 	
 	// input: 글번호         output: List<CommentView>
 	public List<CommentView> generateCommentViewListByPostId(int postId) {
+		
 		List<CommentView> commentViewList = new ArrayList<>();
 		
 		// 댓글들 가져옴
@@ -48,6 +49,10 @@ public class CommentBO {
 		}
 		
 		return commentViewList;
+	}
+	
+	public void deleteCommentById(int id) {
+		commentMapper.deleteCommentById(id);
 	}
 	
 }
