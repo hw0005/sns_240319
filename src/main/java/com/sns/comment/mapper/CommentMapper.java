@@ -21,5 +21,9 @@ public interface CommentMapper {
 	
 	public void deleteCommentById(int id);
 	
+	public void deleteCommentByPostIdAndUserId(
+			@Param("postId") int postId, 
+			@Param("userId") int userId);
+	
 	
 }
